@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Добавление жанров{% endblock title %}
+{% block content %}
+<h1>Добавление жанров</h1>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+    <table>
+       {{ form }}
+    </table>
+    <input type="submit" value="Установить" >
+</form>
+</body>
+{% endblock content %}

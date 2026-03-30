@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Песни{% endblock title %}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>№</th>
+            <th>Название</th>
+            <th>Продолжительность</th>
+            <th>Жанр</th>
+         
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in track1 %}
+        <tr>
+            
+            <td>{{t.id}}</td>
+            <td>
+                {% if t.audio_file %}
+                    <audio src="{{t.audio_file.url}}" controls></audio>
+                    {% endif %}
+                    <br>
+                    {{ t.title }}
+            </td>
+            <td>{{t.duration}}</td>
+            <td>
+              {{ t.genre.all|join:", "}}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
